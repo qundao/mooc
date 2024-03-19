@@ -1,1 +1,117 @@
-site_name: My Docs
+# Site information
+site_name: 最全公开课知识库
+site_url: https://qundao.github.io/mooc
+site_author: qundao
+site_description: "最全公开课知识库"
+copyright: Copyright &copy; 2023-2024 qundao
+# docs_dir: docs/
+
+# Repository
+repo_name: 
+repo_url: https://github.com/qundao/mooc
+# edit_uri: tree/main
+# Theme
+theme:
+  name: material
+  # custom_dir: overrides
+  favicon: assets/favicon.ico
+  language: "zh"
+  icon:
+    logo: material/island
+    repo: fontawesome/brands/github-alt
+  font:
+    text: Helvetica Neue, Roboto, sans-serif
+    code: Fira Mono, Roboto Mono, monospace
+  palette:
+    - media: "(prefers-color-scheme)"
+      toggle:
+        icon: material/brightness-auto
+        name: Switch to light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Switch to system preference
+  features:
+    - navigation.footer
+    - navigation.path
+    - navigation.prune
+    - navigation.tabs
+    - navigation.top
+    - navigation.tracking
+    - search.highlight
+    - search.suggest
+    - content.code.copy
+
+markdown_extensions:
+  # Python Markdown
+  - abbr
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - toc:
+      permalink: true
+      slugify: !!python/object/apply:pymdownx.slugs.slugify
+        kwds:
+          case: lower
+  # Python Markdown Extensions
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.highlight
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+  # more
+  - tables
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/qundao
+
+extra_javascript:
+  - https://code.jquery.com/jquery-3.7.1.min.js
+  - https://cdn.datatables.net/2.0.2/js/dataTables.min.js
+  - https://cdn.datatables.net/plug-ins/2.0.2/i18n/zh.json
+  - assets/js/datatables.js
+
+extra_css:
+  - https://cdn.datatables.net/2.0.2/css/dataTables.dataTables.min.css
+
+plugins:
+  - table-reader
+  - minify:
+      minify_html: true
+  - search:
+      lang:
+        - en
+        - zh
+      separator: '[\s\-,:!=\[\]()"/\u200b]+|(?!\b)(?=[A-Z][a-z])|\.(?!\d)|&[lg]t;'
+
+nav:
+  - Home: index.md
+  - 公开课程: course.md  
+  - 其他课程: other.md  
+  - UP主推荐: vlogger.md
+  - 书籍推荐: read.md
