@@ -193,7 +193,7 @@ def format_csv1(file, savefile):
     df2["platform"] = df2["课程所在平台"].fillna("").apply(update_platform)
     df2["平台及链接"] = df2.apply(lambda x: set_link(x["platform"], x["links"]), axis=1)
 
-    df3 = df2[out_cols].fillna(" ")
+    df3 = df2[out_cols].fillna(" ").replace("", " ")
     df3 = df3.sort_values(sort_cols)
     df3.reset_index(drop=True).reset_index().to_csv(savefile, index=False)
 
@@ -236,7 +236,7 @@ def format_csv2(file, savefile):
     df2["platform"] = df2[col_platform].fillna("").apply(update_platform2)
     df2["平台及链接"] = df2.apply(lambda x: set_link(x["platform"], x["links"]), axis=1)
 
-    df3 = df2[out_cols].fillna(" ")
+    df3 = df2[out_cols].fillna(" ").replace("", " ")
     df3 = df3.sort_values(sort_cols)
     df3.reset_index(drop=True).reset_index().to_csv(savefile, index=False)
 
@@ -275,7 +275,7 @@ def format_book(file, savefile):
     
     for col in ["书籍作者", "推荐语"]:
         df2[col] = df2[col].fillna("").apply(strip_words)
-    df3 = df2[out_cols].fillna(" ")
+    df3 = df2[out_cols].fillna(" ").replace("", " ")
     df3 = df3.sort_values(sort_cols)
     df3.reset_index(drop=True).reset_index().to_csv(savefile, index=False)
 
@@ -286,8 +286,8 @@ if __name__ == "__main__":
         format="%(asctime)s %(filename)s [line:%(lineno)d] %(levelname)s %(message)s",
     )
     fn_names = [
-        # [format_csv1, ["大学专业类课程区"]],
-        # [format_csv2, ["其他课程区", "up主推荐区"]],
+        [format_csv1, ["大学专业类课程区"]],
+        [format_csv2, ["其他课程区", "up主推荐区"]],
         [format_book, ["推荐书籍区"]],
     ]
     basedir = "data/raw"
