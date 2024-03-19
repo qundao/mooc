@@ -110,7 +110,7 @@ plugins:
       separator: '[\s\-,:!=\[\]()"/\u200b]+|(?!\b)(?=[A-Z][a-z])|\.(?!\d)|&[lg]t;'
 
 nav:
-  - Home: index.md
+  - 说明: index.md
   - 公开课程: course.md  
   - 其他课程: other.md  
   - UP主推荐: vlogger.md
